@@ -23,27 +23,26 @@ class primera_Iniciarsesion extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Padding(
-          padding:   EdgeInsets.all(16.0),
+        child: Container(
+          width: 300,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(child: TextField(
+              TextField(
+              decoration: InputDecoration(
+                labelText: 'Nombre',
+              ),
+                            ),
+              SizedBox(height: 16),
+              TextField(
                  decoration: InputDecoration(
-                labelText: 'nombre',
-                ),
-              ),
-              ),
-              SizedBox(width: 16),
-              Expanded(child: TextField(
-                 decoration: InputDecoration(
-                labelText: 'contraseña'),
-              ),
+                labelText: 'Contraseña'),
               ),
             ], 
             ),
-          ),
         ),
+      ),
       );
   }
 }

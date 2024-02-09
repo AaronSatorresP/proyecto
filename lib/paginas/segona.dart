@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:proyecto/paginas/inici.dart';
 
 class segona_registrarte extends StatelessWidget {
-  const segona_registrarte({super.key});
+
+  TextEditingController controladorData = TextEditingController();
+  
+   segona_registrarte({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    controladorData.text = _formatDate(DateTime.now());
+
+
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -22,21 +29,42 @@ class segona_registrarte extends StatelessWidget {
         ],
       ),
       body: Center(
-         child: Padding(
-          padding:   EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(child: TextField(
+          child: Container(
+            width: 300,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const TextField(
+                   decoration: InputDecoration(
+                  labelText: 'Nombre'
+                  ),
+                 ),
+                SizedBox(width: 16),
+                const TextField(
+                   decoration: InputDecoration(
+                  labelText: 'Apellido'),
+                ),
+                 SizedBox(width: 16),
+                const TextField(
+                   decoration: InputDecoration(
+                  labelText: 'Contraseña'),
+                ),
+                SizedBox(width: 16),
+                TextField(
+                  controller: controladorData,
                  decoration: InputDecoration(
-                labelText: 'nombre'
+                labelText: 'Fecha_nacimineto'
                 ),
                ),
-              ),
-            ],
+              ],
+            ),
           ),
          ),
-      ),
+
     );
+  }
+  String _formatDate(DateTime date) {
+    return '${date.day}/${date.month}/${date.year}';
   }
 }
