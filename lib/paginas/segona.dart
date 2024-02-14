@@ -57,6 +57,10 @@ class segona_registrarte extends StatelessWidget {
                 labelText: 'Fecha_nacimineto'
                 ),
                ),
+               ElevatedButton(
+                onPressed: (){},
+                child: Text('Registrarte')
+                ),
               ],
             ),
           ),
