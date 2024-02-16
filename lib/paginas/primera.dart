@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:proyecto/paginas/inici.dart';
+import 'package:proyecto/paginas/segona.dart';
 
 class primera_Iniciarsesion extends StatelessWidget {
    primera_Iniciarsesion({super.key});
 
  TextEditingController usuariopuesto = TextEditingController();
-TextEditingController contrasenapuesta=TextEditingController();
+  TextEditingController contrasenapuesta=TextEditingController();
 
 
 
@@ -14,7 +15,9 @@ TextEditingController contrasenapuesta=TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
+        leading: GestureDetector(
+          child: _imagen(context, 'assets/images.png'),
+        ),
         title: Center(
           child: Text("Iniciar Session"),
         ),
@@ -60,10 +63,28 @@ TextEditingController contrasenapuesta=TextEditingController();
                 }, 
                 child: Text('Iniciar')
                 ),
+                TextButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => segona_registrarte(),));
+                  },
+                   child: Text('Registrarse'),
+                   ),
             ], 
             ),
         ),
       ),
       );
+  }
+  Widget _imagen(BuildContext context, String item) {
+    return GestureDetector(
+      child: Image.asset(
+        item,
+        width: 100, 
+        height: 100, 
+      ),
+    );
   }
 }
